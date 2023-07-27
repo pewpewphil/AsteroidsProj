@@ -16,6 +16,10 @@ public class ObjectPool : MonoBehaviour
 
     private void Awake()
     {
+        if (SharedInstance != null && SharedInstance != this)
+        {
+            Destroy(this);
+        }
         SharedInstance = this;
     }
 

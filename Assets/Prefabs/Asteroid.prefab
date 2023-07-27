@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d95d18d090ce74abdb1bca926d430d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  asteroidData: {fileID: 11400000, guid: cdc611fc08dada848b52eadc61d57d22, type: 2}
   scoreValue: 10
   saveState:
     isActive: 0

@@ -19,6 +19,13 @@ public class PlayerData : SaveStateBase
     [SerializeField]
     private bool respawning=false;
 
+    // newly added
+    public delegate void OnDestoryAsteroid(int score);
+    public static OnDestoryAsteroid onDestoryAsteroid;
+
+    public delegate void OnCollisionAsteroid();
+    public static OnCollisionAsteroid onAsteroidCollide;
+
     //save and laod 
     [System.Serializable]
     public struct PlayerValues
@@ -35,6 +42,8 @@ public class PlayerData : SaveStateBase
     // Start is called before the first frame update
     void Start()
     {
+        onAsteroidCollide -= CollidedWithAsteroid;// newly added
+        onAsteroidCollide += CollidedWithAsteroid;// newly added
         respawning = false;
         if (playerController == null)
             playerController = GetComponent<PlayerController>();

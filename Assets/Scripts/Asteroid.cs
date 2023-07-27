@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Asteroid : SaveStateBase
 {
+    public AsteroidData asteroidData;//newly added
     public int scoreValue=10;
     PlayerData playerData;
     //saving variables 
@@ -19,6 +20,7 @@ public class Asteroid : SaveStateBase
 
     public void Start()
     {
+        // can cache this using serializable and grabbing it before runtime
         GetComponent<Rigidbody>().AddForce(transform.forward * 300f);// this is apparently need for the asteroid to move 
     }
 
@@ -65,6 +67,8 @@ public class Asteroid : SaveStateBase
         DeactivateAsteroid();
         //Debug.Log("Player");
         playerData.CollidedWithAsteroid();
+        //newly added
+        //PlayerData.onAsteroidCollide.Invoke();
     }
 
     private void CollisionWithLaser(GameObject laserObject)

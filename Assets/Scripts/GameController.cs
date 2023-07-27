@@ -32,6 +32,10 @@ public class GameController : MonoBehaviour
     public static GameController SharedInstance;
     private void Awake()
     {
+        if (SharedInstance != null && SharedInstance != this)
+        {
+            Destroy(this);
+        }
         SharedInstance = this;
     }
     void Start()
